@@ -15,6 +15,7 @@
     <script src="node_modules/rxjs/bundles/Rx.js"></script>
     <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
     <script src="node_modules/angular2/bundles/router.dev.js"></script>
+    <script src="node_modules/angular2/bundles/http.dev.js"></script>
 
     <!-- 2. Configure SystemJS -->
     <script>
@@ -30,16 +31,26 @@
             .then(null, console.error.bind(console));
     </script>
 
-    <link rel="stylesheet" href="assets/css/imag-wps-web.css">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.css"> -
+    <link rel="stylesheet" href="assets/css/imag-wps-web.css">
+
+    <!--
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-theme.css">
+ ->
 
 </head>
 
 <!-- 3. Display the application -->
 
-<body>
-    <wps-app>Loading...</wps-app>
-</body>
+    <body>
+        <wps-app>Loading...</wps-app>
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="node_modules/jquery/dist/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    </body>
 
 </html>
