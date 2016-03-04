@@ -6,7 +6,9 @@ import {CreationPatientCmp} from './patient/creation-patient.component';
 import {RapprochementPatientCmp} from './patient/rapprochement-patient.component';
 import {TodoCmp} from './todo/todo.component';
 import {UtilisateurConnecteService} from './shared/utilisateur-connecte.service';
-import { DROPDOWN_DIRECTIVES } from 'ng2-bootstrap/ng2-bootstrap';
+import {Utilisateur} from './shared/utilisateur';
+import {HTTP_PROVIDERS}    from 'angular2/http';
+
 
 
 @Component({
@@ -15,6 +17,7 @@ import { DROPDOWN_DIRECTIVES } from 'ng2-bootstrap/ng2-bootstrap';
     directives: [ROUTER_DIRECTIVES],
     providers: [
         ROUTER_PROVIDERS,
+        HTTP_PROVIDERS,
         UtilisateurConnecteService
     ]
 })
@@ -48,12 +51,16 @@ import { DROPDOWN_DIRECTIVES } from 'ng2-bootstrap/ng2-bootstrap';
 ])  
 export class WpsApp implements OnInit{
     
-    utilisateur : any;
+    utilisateur : Utilisateur;
     
     constructor (
         private _utilisateurConnecteService: UtilisateurConnecteService) {}
     
     ngOnInit() {
-        this.utilisateur = this._utilisateurConnecteService.getUtilisateurConnecte();
-    }    
+        this.getUtilisateurConnecte();
+    } 
+    
+    getUtilisateurConnecte() {
+        this._utilisateurConnecteService.getUtilisateurConnecte().subscribe(utilisateur => this.utilisateur=utilisateur);
+    }   
 }
