@@ -73,3 +73,34 @@ body {
 	-moz-border-radius: 6px 0 6px 6px;
 	border-radius: 6px 0 6px 6px;
 }
+
+/**************/
+/*   FOOTER   */
+/**************/
+
+.logoFooter {
+	height: 40px;
+	padding-top: 5px;
+	margin: 0 15px;
+}
+
+.marginLeftAuto {
+    margin-left: auto;
+}
+
+#logoFooterFAQ {
+	font-size: 16px;
+}
+
+#logoFooterFAQ img {
+	width: 20px;
+	margin-right: 5px;
+}
+
+#logoFooterARS {
+	margin-top: 5px;
+}
+
+#logoFooterSanteos, #logoFooterAgfa {
+	height:35px;
+}
