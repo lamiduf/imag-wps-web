@@ -21,6 +21,17 @@ body {
 	padding: 2px 15px;
 }
 
+/********************/
+/*   PAGE ACCUEIL   */
+/********************/
+
+.padding10px {
+    padding:10px;
+}
+
+.paddingLeft20px {
+    padding-left: 20px;
+}
 
 /************************/
 /*   DROPDOWN-SUBMENU   */
@@ -103,4 +114,26 @@ body {
 
 #logoFooterSanteos, #logoFooterAgfa {
 	height:35px;
+}
+
+/***********************/
+/*   RESOLUTION 1024   */
+/***********************/
+
+@media (max-width: 1199px) {
+    .retourChariotTexteTropGrand {
+        white-space: normal;
+        min-height: 160px;
+    }
+
+    .aggrandissementCaseAccueil {
+        min-height: 160px;
+        padding-top: 21px;
+    }
+
+    .centrerBouton {
+        position: relative;
+        margin-left: -15%;
+        display: inline;
+    }
 }
