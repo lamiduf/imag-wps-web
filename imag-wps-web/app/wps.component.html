@@ -7,67 +7,26 @@
 
             <ul class="nav navbar-nav">
 
-                <!-- Menu Patient -->
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Patient&nbsp;<i class="fa fa-chevron-down"></i></a>
+                <li *ngFor="#item of menu.items" class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{item.texte}}<i class="fa fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a [routerLink]="['RecherchePatient']">Rechercher un patient</a></li>
-                        <li><a [routerLink]="['CreationPatient']">Créer un patient</a></li>
-                        <li class="dropdown-submenu">
-                            <a tabindex="-1" href="#">Recueillir le consentement du patient</a>
-                            <ul class="dropdown-menu">
-                                <li><a [routerLink]="['RecherchePatient']">Consentement</a></li>
-                                <li><a [routerLink]="['RecherchePatient']">Acc&egrave;s bloqu&eacute;s</a></li>
-                            </ul>
-                        </li>
-                        <li><a [routerLink]="['RapprochementPatient']">Rapprochement d'identit&eacute;s patient</a></li>
+                        <template ngFor #subItem [ngForOf]="item.items">
+                            <template [ngIf]="subItem.isLink">
+                                <li><a [routerLink]="[subItem.routeurLink]">{{subItem.texte}}</a></li>
+                            </template>
+                            <template [ngIf]="!subItem.isLink">
+                                <li class="dropdown-submenu">
+                                    <a tabindex="-1" href="#">{{subItem.texte}}</a>
+                                        <ul class="dropdown-menu">
+                                            <li *ngFor="#subsubItem of subItem.items">
+                                                <template [ngIf]="subsubItem.isLink">
+                                                    <a [routerLink]="[subsubItem.routeurLink]">{{subsubItem.texte}}</a>
+                                                </template>
+                                            </li>
+                                        </ul>
+                            </template>
+                        </template>
                     </ul>
-                </li>
-
-                <!-- Partage -->
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Partage&nbsp;<i class="fa fa-chevron-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a [routerLink]="['Todo']">Consulter les demandes de second avis</a></li>
-                        <li><a [routerLink]="['Todo']">Consulter mes demandes de transfert</a></li>
-                        <li><a [routerLink]="['Todo']">Rechercher les examens d'un patient</a></li>
-                        <li><a [routerLink]="['Todo']">Rechercher un examen par identifiant</a></li>
-                        <li><a [routerLink]="['Todo']">Soumettre une demande de second avis</a></li>
-                    </ul>
-                </li>
-
-                <!-- Annuaire -->
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Annuaire&nbsp;<i class="fa fa-chevron-down"></i></a>
-                    <ul class="dropdown-menu">
-
-                        <!-- Sous menu etablissements -->
-                        <li class="dropdown-submenu">
-                            <a tabindex="-1" href="#">Etablissements</a>
-                            <ul class="dropdown-menu">
-                                <li><a [routerLink]="['Todo']">Consulter un établissement</a></li>
-                                <li><a [routerLink]="['Todo']">D&eacute;finir les accords d'un &eacute;tablissement</a></li>
-                            </ul>
-                        </li>
-
-                        <!-- Sous menu utilisateurs -->
-                        <li class="dropdown-submenu" check-access-simple="sous_menu_utilisateur">
-                            <a tabindex="-1" href="#">Utilisateurs</a>
-                            <ul class="dropdown-menu">
-                                <li><a [routerLink]="['Todo']">Rechercher un utilisateur</a></li>
-                                <li><a [routerLink]="['Todo']">Cr&eacute;er un utilisateur</a></li>
-                            </ul>
-                        </li>
-
-                        <!-- Sous menu habilitations -->
-                        <li class="dropdown-submenu" check-access-simple="sous_menu_habilitations">
-                            <a tabindex="-1" href="#">Habilitations</a>
-                            <ul class="dropdown-menu">
-                                <li><a [routerLink]="['Todo']">Consulter un profil</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
             </ul>
 
             <!-- compte utilisateur -->
