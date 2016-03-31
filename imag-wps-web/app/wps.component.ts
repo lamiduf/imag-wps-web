@@ -1,9 +1,9 @@
 import {Component,  OnInit} from 'angular2/core';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
 import {AccueilCmp} from './accueil/accueil.component';
-import {RecherchePatientCmp} from './patient/recherche-patient.component';
-import {CreationPatientCmp} from './patient/creation-patient.component';
-import {RapprochementPatientCmp} from './patient/rapprochement-patient.component';
+import {RecherchePatientCmp} from './patient/recherche/recherche-patient.component';
+import {CreationPatientCmp} from './patient/creation/creation-patient.component';
+import {RapprochementPatientCmp} from './patient/rapprochement/rapprochement-patient.component';
 import {TodoCmp} from './todo/todo.component';
 import {UtilisateurConnecteService} from './shared/utilisateur-connecte.service';
 import {MenuService} from './shared/menu.service';
